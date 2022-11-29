@@ -1,6 +1,7 @@
 %{
     #include<iostream>
     #include "hw3_output.hpp"
+    #include "types.h"
     using namespace std;
     using namespace output;
 
@@ -9,7 +10,21 @@
     extern int yylineno;
 %}
 
-%nonassoc IF
+%%union{
+    TypeNode* typeNode;
+    FuncNode* funcNode;
+    ProgramNode* programNode;
+    FuncsDeclNode* funcsDeclNode;
+    RetTypeNode* retTypeNode;
+    FormalsNode* formalsNode;
+    FormalsListNode* formalsListNode;
+    FormalDeclNode* formalDeclNode;
+    StatementsNode* statementsNode;
+    StatementNode* statementNode;
+    CallNode* callNode;
+    ExpListNode* expListNode;
+    ExpNodeNode* expNodeNode;
+}
 
 %token NUM
 %token VOID
@@ -17,11 +32,6 @@
 %token BYTE
 %token B
 %token BOOL
-
-
-
-
-
 
 
 %token TRUE
@@ -37,6 +47,7 @@
 %token RBRACE
 %token ID
 %token STRING
+%nonassoc IF
 
 %left ASSIGN
 
@@ -63,7 +74,7 @@ Program: Funcs {printProductionRule(1);}
 		| FuncDecl Funcs {printProductionRule(3);}
 
 
- FuncDecl: RetType ID LPAREN Formals RPAREN LBRACE Statements RBRACE
+ FuncDecl: RetType ID LPAREN Formals RPAREN LBRACE {FuncNode($1, $2, $4, yylineno);} Statements RBRACE
  {printProductionRule(4);}
 
 
@@ -92,10 +103,10 @@ Program: Funcs {printProductionRule(1);}
 			| ID ASSIGN Exp SC {printProductionRule(17);}
 			| Call SC {printProductionRule(18);}
 			| RETURN SC {printProductionRule(19);}
-			| RETURN Exp SC {p     rintProductionRule(20);}
+			| RETURN Exp SC {printProductionRule(20);}
 			| IF LPAREN Exp RPAREN Statement {printProductionRule(21);}
 			| IF LPAREN Exp RPAREN Statement ELSE Statement {printProductionRule(22);}
-			| WHILE LPAREN Exp RPAREN Statement {printProductionRule(23);}
+			| WHILE LPAREN Exp RPAREN Statement {}
 			| BREAK SC {printProductionRule(24);}
 			| CONTINUE SC {printProductionRule(25);}
 
