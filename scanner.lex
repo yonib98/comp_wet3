@@ -15,7 +15,7 @@ whitespace		([\t\n \r])
 relop           ([<>!]=?|==)
 %%
 
-0|[1-9]{digit}*      			return NUM;
+0|[1-9]{digit}*      		return {yylval.numNode = new NumNode(yytext, yylineno); return NUM;};
 void                        return VOID;
 int                         return INT;
 byte                        return BYTE;
@@ -43,7 +43,7 @@ continue                   return CONTINUE;
 [+-]                          return ADD_MIN;
 [*/]                          return MUL_DIV;
 
-{letter}({letter}|{digit})* return ID;
+{letter}({letter}|{digit})* {yylval.idNode = new IdNode(yytext, yylineno); return ID;};
 \"([^\n\r\"\\]|\\[rnt"\\])+\" return STRING;
 {whitespace}                ;
 \/\/[^\r\n]*[ \r|\n|\r\n]? 	;
