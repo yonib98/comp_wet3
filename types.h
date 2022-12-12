@@ -1,25 +1,33 @@
+#ifndef _TYPES
+#define _TYPES
+
 #include <string>
 #include <vector>
 
 using namespace std;
 
 enum Type{
-    INT,
-    BYTE,
-    BOOL,
-    STRING,
-    VOID,
+    _INT,
+    _BYTE,
+    _BOOL,
+    _STRING,
+    _VOID,
 };
 struct TypeNode {
     Type type;
     TypeNode* next;
     TypeNode* back;
-
-public TypeNode(Type type): type(type), next(nullptr), back(nullptr){};
+    TypeNode(Type type): type(type), next(nullptr), back(nullptr) {};
 };
 struct IdNode {
     string id;
-public IdNode(string id): id(id){};
+    IdNode(string id): id(id){};
+};
+
+
+struct NumNode {
+    string value;
+    NumNode(string value): value(value) {}
 };
 
 struct NodeParams{
@@ -27,14 +35,14 @@ struct NodeParams{
     string id;
     NodeParams* next;
     NodeParams* back;
-public NodeParams(TypeNode type, IdNode id) type(type.type), id(id.id), next(nullptr), back(nullptr) {};
+    NodeParams(TypeNode* type, IdNode* id): type(type->type), id(id->id), next(nullptr), back(nullptr) {};
 };
 
 struct FuncCallNode{
-    IdNode id;
+    IdNode* id;
     TypeNode* types;
-    FuncCallNode(IdNode id, TypeNode* types): id(id), types(types) {};
-    FuncCallNode(IdNode id) : id(id); {}
+    FuncCallNode(IdNode* id, TypeNode* types): id(id), types(types) {};
+    FuncCallNode(IdNode* id) : id(id), types(nullptr){};
 };
 
 struct Scope{
@@ -48,7 +56,7 @@ struct Scope{
         string id;
         NodeParams* params_head;
         bool is_func;
-        Record(Type type, int offset, string id): type(type), offset(offest), id(id), params_head(nullptr), is_func(
+        Record(Type type, int offset, string id): type(type), offset(offset), id(id), params_head(nullptr), is_func(
                 false){};
         Record(Type type, string id, NodeParams* params_head): type(type), offset(0), id(id), params_head(params_head), is_func(true){};
     };
@@ -66,14 +74,14 @@ struct Scope{
             Record* func_arg =new Record(tmp->type, offset, tmp->id);
             records.push_back(func_arg);
             offset--;
-            tmp = tmp->next
+            tmp = tmp->next;
         }
     }
 };
 struct SymTable{
     vector<Scope> scopes;
     vector<int> offsets;
-    Record* current_func;
+    Scope::Record* current_func;
     bool is_main = false;
     bool while_scope = false;
     void push_scope();
@@ -90,10 +98,10 @@ struct SymTable{
     void check_break(int line_no);
     void check_continue(int line_no);
     TypeNode* find_type_from_tri(TypeNode* type_n1, TypeNode* type_n2, TypeNode* type_n3, int line_no);
-    void find_type_from_add_min(TypeNode* type_n1, TypeNode* type_n2, int line_no);
-    void find_type_from_mul_div(TypeNode* type_n1, TypeNode* type_n2, int line_no);
-    void find_type_from_id(IdNode* id_n, int line_no);
-    void find_type_from_call_func(FuncCallNode* call_n, int line_no);
+    TypeNode* find_type_from_add_min(TypeNode* type_n1, TypeNode* type_n2, int line_no);
+    TypeNode* find_type_from_mul_div(TypeNode* type_n1, TypeNode* type_n2, int line_no);
+    TypeNode* find_type_from_id(IdNode* id_n, int line_no);
+    TypeNode* find_type_from_call_func(FuncCallNode* call_n, int line_no);
     SymTable(): is_main(false), while_scope(false) {
         scopes.push_back(Scope());
         offsets.push_back(0);
@@ -106,4 +114,5 @@ void  end_program(int yychar, int yyeof, int line_no);
 
 SymTable table;
 
+#endif
 

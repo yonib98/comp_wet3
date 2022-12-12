@@ -2,6 +2,7 @@
 
 /* Declarations section */
 #include <stdio.h>
+#include "types.h"
 #include "parser.tab.hpp"
 #include "hw3_output.hpp"
 
@@ -15,7 +16,7 @@ whitespace		([\t\n \r])
 relop           ([<>!]=?|==)
 %%
 
-0|[1-9]{digit}*      		return {yylval.numNode = new NumNode(yytext, yylineno); return NUM;};
+0|[1-9]{digit}*      		yylval.numNode = new NumNode(yytext); return NUM;
 void                        return VOID;
 int                         return INT;
 byte                        return BYTE;
@@ -43,7 +44,7 @@ continue                   return CONTINUE;
 [+-]                          return ADD_MIN;
 [*/]                          return MUL_DIV;
 
-{letter}({letter}|{digit})* {yylval.idNode = new IdNode(yytext, yylineno); return ID;};
+{letter}({letter}|{digit})* yylval.idNode = new IdNode(yytext); return ID;
 \"([^\n\r\"\\]|\\[rnt"\\])+\" return STRING;
 {whitespace}                ;
 \/\/[^\r\n]*[ \r|\n|\r\n]? 	;
