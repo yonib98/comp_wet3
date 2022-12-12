@@ -2,6 +2,7 @@
 #include "hw3_output.hpp"
 #include <string>
 using namespace std;
+SymTable table;
 
 void SymTable::push_scope(){
     scopes.push_back(Scope());

@@ -112,7 +112,6 @@ struct SymTable{
 void start_program();
 void  end_program(int yychar, int yyeof, int line_no);
 
-SymTable table;
 
 #endif
 
