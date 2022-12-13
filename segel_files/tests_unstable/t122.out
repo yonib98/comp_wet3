@@ -1,0 +1,3 @@
+---end scope---
+enum C {c1,c2,c3}
+line 8: enum C is not defined

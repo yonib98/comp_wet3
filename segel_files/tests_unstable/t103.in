@@ -1,0 +1,7 @@
+enum A {a1, a2, a3};
+
+void A() {}
+
+void main() {
+	int c1;
+}

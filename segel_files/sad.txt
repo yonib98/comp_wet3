@@ -1,0 +1,245 @@
+1c1
+< Program has no 'void main()' function
+---
+> line 5: identifier C is already defined
+Failed test t100!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: identifier C is already defined
+Failed test t101!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: identifier c1 is already defined
+Failed test t102!
+1c1
+< Program has no 'void main()' function
+---
+> line 3: identifier A is already defined
+Failed test t103!
+1c1
+< Program has no 'void main()' function
+---
+> line 3: identifier a1 is already defined
+Failed test t104!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: variable A is not defined
+Failed test t105!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: variable D is not defined
+Failed test t106!
+1c1
+< Program has no 'void main()' function
+---
+> line 3: identifier A is already defined
+Failed test t107!
+1c1
+< Program has no 'void main()' function
+---
+> line 3: identifier a1 is already defined
+Failed test t108!
+1c1
+< Program has no 'void main()' function
+---
+> line 3: identifier foo is already defined
+Failed test t109!
+1c1,3
+< Program has no 'void main()' function
+---
+> ---end scope---
+> d INT -1
+> line 7: identifier foo is already defined
+Failed test t110!
+1c1,3
+< Program has no 'void main()' function
+---
+> ---end scope---
+> d INT -1
+> line 8: identifier foo is already defined
+Failed test t111!
+1c1
+< Program has no 'void main()' function
+---
+> line 3: identifier A is already defined
+Failed test t112!
+1c1
+< Program has no 'void main()' function
+---
+> line 3: identifier a3 is already defined
+Failed test t113!
+1c1
+< Program has no 'void main()' function
+---
+> line 4: enum C is not defined
+Failed test t114!
+1c1
+< Program has no 'void main()' function
+---
+> line 3: enum C is not defined
+Failed test t115!
+1c1
+< Program has no 'void main()' function
+---
+> line 4: type mismatch
+Failed test t116!
+1c1
+< Program has no 'void main()' function
+---
+> line 4: type mismatch
+Failed test t117!
+1c1
+< Program has no 'void main()' function
+---
+> line 4: type mismatch
+Failed test t118!
+1c1
+< Program has no 'void main()' function
+---
+> line 4: type mismatch
+Failed test t119!
+1c1,2
+< Program has no 'void main()' function
+---
+> ---end scope---
+> line 8: type mismatch
+Failed test t120!
+1c1,7
+< Program has no 'void main()' function
+---
+> ---end scope---
+> x INT 0
+> ---end scope---
+> print (STRING)->VOID 0
+> printi (INT)->VOID 0
+> main ()->VOID 0
+> enum A {a1,a2,a3}
+Failed test t121!
+1c1,3
+< Program has no 'void main()' function
+---
+> ---end scope---
+> enum C {c1,c2,c3}
+> line 8: enum C is not defined
+Failed test t122!
+1c1,8
+< Program has no 'void main()' function
+---
+> ---end scope---
+> x enum A 0
+> ---end scope---
+> print (STRING)->VOID 0
+> printi (INT)->VOID 0
+> main ()->VOID 0
+> enum A {a1,a2,a3}
+> enum C {c1,c2,c3}
+Failed test t80!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: assignment of undefined value to x
+Failed test t81!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: assignment of undefined value to x
+Failed test t82!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: assignment of undefined value to x
+Failed test t83!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: assignment of undefined value to x
+Failed test t84!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: assignment of undefined value to x
+Failed test t85!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: assignment of undefined value to x
+Failed test t86!
+1c1,2
+< Program has no 'void main()' function
+---
+> ---end scope---
+> line 9: assignment of undefined value to x
+Failed test t87!
+1c1
+< Program has no 'void main()' function
+---
+> line 6: assignment of undefined value to x
+Failed test t88!
+1c1
+< Program has no 'void main()' function
+---
+> line 6: assignment of undefined value to x
+Failed test t89!
+1c1
+< Program has no 'void main()' function
+---
+> line 6: assignment of undefined value to x
+Failed test t90!
+1c1
+< Program has no 'void main()' function
+---
+> line 6: assignment of undefined value to x
+Failed test t91!
+1c1
+< Program has no 'void main()' function
+---
+> line 6: assignment of undefined value to x
+Failed test t92!
+1c1,2
+< Program has no 'void main()' function
+---
+> ---end scope---
+> line 10: assignment of undefined value to x
+Failed test t93!
+1c1,8
+< Program has no 'void main()' function
+---
+> ---end scope---
+> x enum A 0
+> ---end scope---
+> print (STRING)->VOID 0
+> printi (INT)->VOID 0
+> main ()->VOID 0
+> enum A {a1,a2,a3}
+> enum C {c1,c2,c3}
+Failed test t94!
+1c1
+< Program has no 'void main()' function
+---
+> line 2: identifier a3 is already defined
+Failed test t95!
+1c1
+< Program has no 'void main()' function
+---
+> line 2: identifier A is already defined
+Failed test t96!
+1c1
+< Program has no 'void main()' function
+---
+> line 2: identifier c2 is already defined
+Failed test t97!
+1c1
+< Program has no 'void main()' function
+---
+> line 2: identifier C is already defined
+Failed test t98!
+1c1
+< Program has no 'void main()' function
+---
+> line 5: identifier a1 is already defined
+Failed test t99!
+Failed some of the unstable_tests!

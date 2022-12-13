@@ -3,3 +3,4 @@ lex.yy.c
 parser.output
 parser.tab.cpp
 parser.tab.hpp
+./segel_files/

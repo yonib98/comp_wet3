@@ -85,7 +85,7 @@ struct SymTable{
     bool is_main = false;
     bool while_scope = false;
     void push_scope();
-    Scope top_scope();
+    Scope& top_scope();
     void pop_scope();
     void insert_symbol(TypeNode* type_n, IdNode* id_n, int lineno);
     void check_symbol(IdNode* id_n, TypeNode* type_n, int lineno);
@@ -97,6 +97,12 @@ struct SymTable{
     void check_exp_is_bool(TypeNode* type_n, int line_no);
     void check_break(int line_no);
     void check_continue(int line_no);
+    void check_relop(TypeNode* type_n1, TypeNode* type_n2, int line_no);
+    void check_casting(TypeNode* type_n1, TypeNode* type_n2, int line_no);
+    void check_logical_op(TypeNode* type_n1, TypeNode* type_n2, int line_no);
+    void check_logical_op(TypeNode* type_n1, int line_no);
+    void check_byte(NumNode* num_n, int line_no);
+
     TypeNode* find_type_from_tri(TypeNode* type_n1, TypeNode* type_n2, TypeNode* type_n3, int line_no);
     TypeNode* find_type_from_add_min(TypeNode* type_n1, TypeNode* type_n2, int line_no);
     TypeNode* find_type_from_mul_div(TypeNode* type_n1, TypeNode* type_n2, int line_no);

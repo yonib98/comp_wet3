@@ -1,0 +1,34 @@
+#!/bin/sh
+
+
+
+
+input=$1
+
+if [ "$#" -ne 1 ]; then
+    echo "ERROR! You must provide one and only one argument!"
+    echo "Insert which tests you would like to run! (basic, full, unstable)"
+    exit 1
+fi
+
+success=1
+
+for file in `ls tests_$input/ | grep in | cut -d"." -f1`; do
+	#echo Running test for $file
+	./hw3 < tests_$input/${file}.in > tests_$input/${file}
+	diff tests_$input/$file tests_$input/${file}.out
+    retval=$?
+    if [ $retval -ne 0 ];
+    then
+        echo "Failed test $file!"
+        success=0
+    fi
+	#echo \*\*\* DONE \*\*\*
+done
+
+if [ $success -eq 1 ];
+then
+    echo "Passed all ${input}_tests!"
+else
+    echo "Failed some of the ${input}_tests!"
+fi

@@ -1,0 +1,6 @@
+enum A {a1, a2, a3};
+enum C {c1, c2, c3};
+
+void main() {
+	enum A x = false;
+}

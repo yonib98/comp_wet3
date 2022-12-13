@@ -1,0 +1,6 @@
+enum A {a1, a2, a3};
+	
+void main() {
+	int x = (int) 5;
+	return;
+}

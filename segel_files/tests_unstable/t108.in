@@ -1,0 +1,9 @@
+enum A {a1, a2, a3};
+
+void foo(int a1) {
+	return;
+}
+
+void main() {
+	return;
+}

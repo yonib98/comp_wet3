@@ -1,0 +1,13 @@
+enum A {a1, a2, a3};
+
+void foo(int d) {
+	return;
+}
+
+void foo1(int foo) {
+	return;
+}
+	
+void main() {
+	return;
+}
